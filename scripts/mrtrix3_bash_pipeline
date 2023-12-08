@@ -1,0 +1,192 @@
+#!/usr/bin/env bash
+
+# Diffusion processing pipeline using MRtrix3 and FSL tools written
+# as an illustration of how the manual processing steps can be combined into a
+# pipeline
+
+# Bash template based on https://betterdev.blog/minimal-safe-bash-script-template/
+
+set -Eeuo pipefail
+trap cleanup SIGINT SIGTERM ERR EXIT
+
+usage() {
+  cat <<EOF
+Usage: $(basename "${BASH_SOURCE[0]}") [-h] [--no-color] [-f] d o
+
+Process diffusion MRI data for a single-subject with MRtrix3 and FSL
+
+Positional arguments:
+d               DICOM data directory
+o               output directory
+
+Optional arguments:
+-h, --help      print help and exit
+--no-color      don't colorize terminal output
+-f, --force     force overwrite of output files
+
+EOF
+  exit
+}
+
+cleanup() {
+  trap - SIGINT SIGTERM ERR EXIT
+}
+
+setup_colors() {
+  if [[ -t 2 ]] && [[ -z "${NO_COLOR-}" ]] && [[ "${TERM-}" != "dumb" ]]; then
+    NOFORMAT='\033[0m' RED='\033[0;31m' GREEN='\033[0;32m' ORANGE='\033[0;33m'
+  else
+    NOFORMAT='' RED='' GREEN='' ORANGE=''
+  fi
+}
+
+msg() {
+  echo >&2 -e "${1-}"
+}
+
+die() {
+  local msg=$1
+  local code=${2-1} # default exit status 1
+  msg "$msg"
+  exit "$code"
+}
+
+parse_params() {
+  force=0
+
+  while :; do
+    case "${1-}" in
+    -h | --help) usage ;;
+    --no-color) NO_COLOR=1 ;;
+    -f | --force) force=1 ;; # example flag
+    -?*) die "Unknown option: $1" ;;
+    *) break ;;
+    esac
+    shift
+  done
+
+  args=("$@")
+
+  # check required params and arguments
+  [[ ${#args[@]} -ne 2 ]] && usage
+
+  return 0
+}
+
+parse_params "$@"
+setup_colors
+
+if [ ${force} -eq 1 ]; then
+  force_str="-force"
+else
+  force_str=""
+fi
+
+dcm_dir=$(realpath "${args[0]}")
+out_dir=$(realpath "${args[1]}")
+
+msg "${GREEN}Step 1. Make a directory to store the results${NOFORMAT}"
+mkdir -p "${out_dir}"
+cd "${out_dir}"
+
+msg "${GREEN}Step 2. Convert data from DICOM to mif format using mrconvert${NOFORMAT}"
+msg "${GREEN}\nSelect the series containing b=0 s/mm2 data with phase encoding direction P>>A\n${NOFORMAT}"
+mrconvert "${dcm_dir}" -coord 3 0 b0_PA.mif ${force_str}
+
+b0_bvals=$(mrinfo -shell_bvalues b0_PA.mif)
+if [[ ${b0_bvals} -gt 10 ]]; then
+  die "${RED}ERROR: b-value of b0_PA.mif is not 0, exiting${NOFORMAT}"
+fi
+
+b0_pe_dir=$(mrinfo b0_PA.mif -property PhaseEncodingDirection 2>&1)
+if [[ ${b0_pe_dir} == *'no "PhaseEncodingDirection"'* ]]; then
+  msg "${ORANGE}WARNING: Phase encoding direction not found in b0_PA.mif, check images in mrview${NOFORMAT}"
+elif [[ ${b0_pe_dir} != "j" ]]; then
+  die "${RED}ERROR: Phase encoding direction of b0_PA.mif is not P>>A, exiting${NOFORMAT}"
+fi
+
+mrview -quiet -mode 2 -load b0_PA.mif -interpolation 0 &
+
+msg "${GREEN}\nSelect the series containing diffusion weighted data with phase encoding direction A<<P\n${NOFORMAT}"
+mrconvert "${dcm_dir}" dwi_AP.mif ${force_str}
+
+num_bvals=$(mrinfo -shell_sizes dwi_AP.mif | wc -w)
+if [[ "${num_bvals}" -lt 2 ]]; then
+  die "${RED}ERROR: dwi_AP.mif does not include at least 2 b-values, exiting${NOFORMAT}"
+fi
+
+dwi_AP_b0_val=$(mrinfo -shell_bvalues dwi_AP.mif | cut -d " " -f1)
+if [[ ${dwi_AP_b0_val} -gt 10 ]]; then
+  die "${RED}ERROR: Lowest b-value of dwi_AP.mif is not 0, exiting${NOFORMAT}"
+fi
+
+dwi_pe_dir=$(mrinfo dwi_AP.mif -property PhaseEncodingDirection 2>&1)
+if [[ ${dwi_pe_dir} == *'no "PhaseEncodingDirection"'* ]]; then
+  msg "${ORANGE}WARNING: Phase encoding direction not found in dwi_AP.mif, check images in mrview${NOFORMAT}"
+elif [[ ${dwi_pe_dir} != "j-" ]]; then
+  die "${RED}ERROR: Phase encoding direction of dwi_AP.mif is not A>>P, exiting${NOFORMAT}"
+fi
+
+mrview -quiet -mode 2 -load dwi_AP.mif -interpolation 0 &
+
+msg "${GREEN}Step 3. Concatenate the A>>P and P<<A data using mrcat${NOFORMAT}"
+mrcat dwi_AP.mif b0_PA.mif dwi.mif ${force_str}
+
+msg "${GREEN}Step 4. Denoise the data using dwidenoise${NOFORMAT}"
+dwidenoise dwi.mif dwi_denoise.mif ${force_str}
+mrcalc dwi.mif dwi_denoise.mif -subtract dwi_denoise_res.mif ${force_str}
+mrview -quiet -mode 2 -load dwi_denoise_res.mif -interpolation 0 -load dwi.mif  -interpolation 0 -load dwi_denoise.mif  -interpolation 0 &
+
+msg "${GREEN}Step 5. Remove the Gibbs ringing artefact with mrdegibbs${NOFORMAT}"
+mrdegibbs dwi_denoise.mif dwi_degibbs.mif ${force_str}
+mrview -quiet -mode 2 -load dwi_denoise.mif  -interpolation 0 -load dwi_degibbs.mif  -interpolation 0 &
+
+msg "${GREEN}Step 6. Correct for susceptibility and eddy current induced distortions and subject movements with FSL topup and eddy using dwifslpreproc${NOFORMAT}"
+dwiextract -bzero dwi_degibbs.mif b0_degibbs.mif ${force_str}
+b0_vols=$(mrinfo -shell_sizes b0_degibbs.mif)
+mrconvert b0_degibbs.mif -coord 3 $((b0_vols-2)):$((b0_vols-1)) b0_degibbs_AP_PA.mif ${force_str}
+mrview -quiet -mode 2 -load b0_degibbs_AP_PA.mif -interpolation 0 &
+
+dwi_AP_vols=$(mrinfo -size dwi_AP.mif | cut -d " " -f 4)
+mrconvert dwi_degibbs.mif -coord 3 0:$((dwi_AP_vols-1)) dwi_degibbs_AP.mif ${force_str}
+
+dwifslpreproc ${force_str} dwi_degibbs_AP.mif dwi_tu_eddy.mif -align_seepi -rpe_pair -pe_dir AP -se_epi b0_degibbs_AP_PA.mif -eddy_options """--slm=linear --data_is_shelled"""
+mrview -quiet -mode 2 -load dwi_degibbs.mif -interpolation 0 -load dwi_tu_eddy.mif -interpolation 0 &
+
+msg "${GREEN}Step 7. Estimate the response functions of white matter (WM), grey matter (GM) and cerebro-spinal fluid (CSF) for spherical deconvolution using dwi2response${NOFORMAT}"
+dwi2response dhollander dwi_tu_eddy.mif response_wm.txt response_gm.txt response_csf.txt -voxels response_voxels.mif ${force_str}
+mrview -quiet -mode 2 -load dwi_tu_eddy.mif -interpolation 0 -overlay.load response_voxels.mif -overlay.interpolation 0 &
+shview response_wm.txt &
+shview response_gm.txt &
+shview response_csf.txt &
+
+msg "${GREEN}Step 8. Upsample the DWI data with mrgrid${NOFORMAT}"
+mrgrid dwi_tu_eddy.mif regrid -voxel 1.3 dwi_tu_eddy_upsamp.mif ${force_str}
+
+msg "${GREEN}Step 9. Create a brain mask with FSL bet${NOFORMAT}"
+dwiextract -bzero dwi_tu_eddy_upsamp.mif - | mrconvert - -coord 3 0 b0_upsamp.nii ${force_str}
+bet b0_upsamp.nii b0_upsamp -n -m -f 0.35 -g 0.1
+mrconvert b0_upsamp_mask.nii.gz b0_upsamp_mask.mif ${force_str}
+mrview -quiet -mode 2 -load b0_upsamp.nii -interpolation 0 -roi.load b0_upsamp_mask.mif -roi.opacity 0.6 &
+
+msg "${GREEN}Step 10. Estimate the diffusion tensor with dwi2tensor${NOFORMAT}"
+dwi2tensor -mask b0_upsamp_mask.mif dwi_tu_eddy_upsamp.mif dt.mif ${force_str}
+
+msg "${GREEN}Step 11. Calculate the fractional anisotropy (FA) and first eigenvector (EV) maps with tensor2metric${NOFORMAT}"
+tensor2metric -mask b0_upsamp_mask.mif -fa fa.mif -vector ev.mif dt.mif ${force_str}
+mrview -quiet -mode 2 -load fa.mif -interpolation 0 -load ev.mif -interpolation 0 -odf.load_tensor dt.mif &
+
+msg "${GREEN}Step 12. Perform Multi-Shell Multi-Tissue Constrained Spherical Deconvolution with dwi2fod${NOFORMAT}"
+if [[ "${num_bvals}" -gt 2 ]]
+then
+  dwi2fod msmt_csd -mask b0_upsamp_mask.mif dwi_tu_eddy_upsamp.mif response_wm.txt wm_fod.mif response_gm.txt gm_fod.mif response_csf.txt csf_fod.mif ${force_str}
+
+  mrconvert -coord 3 0 wm_fod.mif - | mrcat csf_fod.mif gm_fod.mif - tissue_vf.mif ${force_str}
+  mrview -quiet -mode 2 -load tissue_vf.mif -interpolation 0 &
+
+else
+  dwi2fod msmt_csd -mask b0_upsamp_mask.mif dwi_tu_eddy_upsamp.mif response_wm.txt wm_fod.mif response_csf.txt csf_fod.mif ${force_str}
+fi
+mrview -quiet -mode 2 -load fa.mif -interpolation 0 -load ev.mif -interpolation 0 -odf.load_sh wm_fod.mif &
+
+
