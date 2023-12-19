@@ -300,7 +300,7 @@ together with their respective score:
 
 The Edinburgh Handedness Index (EHI), as a percentage, is calculated using:
 
-$EHI = \frac{R_{total} + L_{total}}{30} \times 100$%
+$EHI = \frac{R_{total} - L_{total}}{30} \times 100$%
 
 Where $L_{total}$ is the sum of the L scores and $R_{total}$ is the sum of the 
 R scores for all 15 activities.
