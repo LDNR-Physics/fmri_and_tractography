@@ -360,12 +360,12 @@ type the name of the paradigm e.g. `fluency` and click `Done`.
 
 4. Select `.... Onsets <-X`, click `Specify...`. In the pop-up window 
 type in the task onsets e.g. for the 
-[verbal fluency paradigm](./fmri_paradigms/laterality_of_language/verbal_fluency/Verbal_Fluency.md) 
+[verbal fluency paradigm](./3_fMRI_Analysis_Pipeline.md) 
 they are `18.2 54.6 91 127.4 163.8 200.2 236.6 273`
 
 5. Select `.... Durations <-X`, click `Specify...`. In the pop-up window 
 type the task duration e.g. for the 
-[verbal fluency paradigm](./fmri_paradigms/laterality_of_language/verbal_fluency/Verbal_Fluency.md) 
+[verbal fluency paradigm](./3_fMRI_Analysis_Pipeline.md) 
 it is `18.2` seconds.
 
 ### 3.5.4. Customise the Contrast module
