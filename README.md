@@ -13,7 +13,9 @@ software packages:
 1. [dcm2niix](https://github.com/rordenlab/dcm2niix) 
 2. [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki) 
 3. [MRtrix3](https://www.mrtrix.org/)
-3. [SPM](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) 
+4. [SPM](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) 
+
+The fMRI paradigms are presented using [PsychoPy](https://www.psychopy.org/).
 
 ## 3. Change Log
 See [changelog](./CHANGELOG.md).
@@ -30,9 +32,9 @@ With many thanks to the
 developers of 
 [dcm2niix](https://github.com/rordenlab/dcm2niix),
 [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki),
-[MRtrix3](https://www.mrtrix.org/)
-and 
-[SPM](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/).
+[MRtrix3](https://www.mrtrix.org/), 
+[SPM](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) and 
+[PsychoPy](https://www.psychopy.org/).
 
 The bash [script](./scripts/mrtrix3_bash_pipeline) was based on a 
 [template](https://betterdev.blog/minimal-safe-bash-script-template/) written 
