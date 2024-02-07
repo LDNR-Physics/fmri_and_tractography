@@ -120,7 +120,7 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
 
-![](./fmri_paradigms/instructions_verb_generation.png)
+![](./fmri_paradigms/verb_generation/resources/verb_generation_instructions.png)
 
 ### 2.4.3. Rest Periods
 The rest periods are the same as for the picture naming task with alternating
@@ -152,26 +152,10 @@ For example:
 
 ### 2.4.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-in a number of different languages can be found here:
-- [Arabic](fmri_paradigms/psychopy_paradigms/Verb_Generation_Arabic)
-- [English](fmri_paradigms/psychopy_paradigms/Verb_Generation_English)
-- [French](fmri_paradigms/psychopy_paradigms/Verb_Generation_French)
-- [German](fmri_paradigms/psychopy_paradigms/Verb_Generation_German)
-- [Greek](fmri_paradigms/psychopy_paradigms/Verb_Generation_Greek)
-- [Hebrew](fmri_paradigms/psychopy_paradigms/Verb_Generation_Hebrew)
-- [Hungarian](fmri_paradigms/psychopy_paradigms/Verb_Generation_Hungarian)
-- [Italian](fmri_paradigms/psychopy_paradigms/Verb_Generation_Italian)
-- [Polish](fmri_paradigms/psychopy_paradigms/Verb_Generation_Polish)
-- [Portuguese](fmri_paradigms/psychopy_paradigms/Verb_Generation_Portuguese)
-- [Romanian](fmri_paradigms/psychopy_paradigms/Verb_Generation_Romanian)
-- [Russian](fmri_paradigms/psychopy_paradigms/Verb_Generation_Russian)
-- [Serbian](fmri_paradigms/psychopy_paradigms/Verb_Generation_Serbian)
-- [Spanish](fmri_paradigms/psychopy_paradigms/Verb_Generation_Spanish)
-- [Turkish](fmri_paradigms/psychopy_paradigms/Verb_Generation_Turkish)
-- [Welsh](fmri_paradigms/psychopy_paradigms/Verb_Generation_Welsh)
+in a number of different languages can be found [here](./fmri_paradigms/verb_generation).
 
-[!NOTE] The instruction page is always shown in English so you will need to 
-explain the task to the subject if they speak a different language.
+[!NOTE] The instruction page is always shown in English. You will need to 
+explain the task to the subject if they cannot read English.
 
 ## 2.5. Motor Activations of the Left Hand
 ### 2.5.1. Design and Timing
