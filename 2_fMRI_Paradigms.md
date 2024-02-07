@@ -51,7 +51,7 @@ on a black background on the fMRI screen i.e.:
 Cross-Symbols-Cross-Symbols...-Cross-Symbols
 
 The cross is shown below:
-![](./fmri_paradigms/cross.png)
+![](./fmri_paradigms/example_images/cross.png)
 
 The symbols are chosen randomly from the following list:
 
@@ -68,7 +68,7 @@ The symbols are chosen randomly from the following list:
 11. &"+`¬?.>
 
 For example:
-![](./fmri_paradigms/rest_example_symbols.png)
+![](./fmri_paradigms/example_images/rest_example_symbols.png)
 
 ### 2.2.4. Task Periods
 During the task periods of the paradigm a yellow cross or a picture of an object 
@@ -106,7 +106,7 @@ During the task periods of the paradigm letters, drawn at random from the
 English alphabet (excluding the letters H,I,J,K,Q,W,X and Y) are displayed 
 centrally on a black background on the fMRI screen, e.g.:
  
-![](./fmri_paradigms/task_example_verbal_fluency.png)
+![](./fmri_paradigms/example_images/task_example_verbal_fluency.png)
 
 ### 2.3.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
@@ -148,7 +148,7 @@ soap, shoes, table, tree, train, towel, violin, wood, wheel, wine, water or yarn
 
 For example:
 
-![](./fmri_paradigms/task_example_verb_generation.png)
+![](./fmri_paradigms/example_images/task_example_verb_generation.png)
 
 ### 2.4.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
@@ -240,21 +240,21 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 ### 2.8.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_feet_left.png)
+![](./fmri_paradigms/feet/resources/instructions_left.png)
 
 ### 2.8.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen i.e. the subject keeps both feet still: 
-![](./fmri_paradigms/rest_feet.png)
+![](./fmri_paradigms/feet/resources/rest.png)
 
 ### 2.8.4. Task Periods
 During the task periods of the paradigm the following image is displayed on the 
 fMRI screen: 
-![](./fmri_paradigms/task_feet_left.png)
+![](./fmri_paradigms/feet/resources/left.png)
 
 ### 2.8.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Left_Foot).
+can be found [here](fmri_paradigms/feet).
 
 ## 2.9. Motor Activations of the Right Foot
 ### 2.9.1. Design and Timing
@@ -263,21 +263,21 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 ### 2.9.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_feet_right.png)
+![](./fmri_paradigms/feet/resources/instructions_right.png)
 
 ### 2.9.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen i.e. the subject keeps both feet still: 
-![](./fmri_paradigms/rest_feet.png)
+![](./fmri_paradigms/feet/resources/rest.png)
 
 ### 2.9.4. Task Periods
 During the task periods of the paradigm the following image is displayed on the 
 fMRI screen: 
-![](./fmri_paradigms/task_feet_right.png)
+![](./fmri_paradigms/feet/resources/right.png)
 
 ### 2.9.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Right_Foot).
+can be found [here](fmri_paradigms/feet).
 
 ## 2.10. Motor Activations of Both Feet
 ### 2.10.1. Design and Timing
@@ -293,12 +293,12 @@ Rest-Right Foot-Left Foot-Rest-Right Foot-Left Foot-Rest-Left Foot-Right Foot-Re
 ### 2.10.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_feet_both.png)
+![](./fmri_paradigms/feet/resources/instructions_both.png)
 
 ### 2.10.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen i.e. the subject keeps both feet still: 
-![](./fmri_paradigms/rest_feet.png)
+![](./fmri_paradigms/feet/resources/rest.png)
 
 ### 2.10.4. Task Periods
 During the task periods of the paradigm the either the left foot or right foot 
@@ -306,7 +306,7 @@ image is displayed on the fMRI screen as described [above](#2101-design-and-timi
 
 ### 2.10.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Both_Feet).
+can be found [here](fmri_paradigms/feet).
 
 ## 2.11. Motor Activations of the Lips
 ### 2.11.1. Design and Timing
@@ -375,7 +375,7 @@ Image 2:
 ![](./fmri_paradigms/visual/resources/visual_chequerboard_b.png)
 
 For example:
-![](./fmri_paradigms/visual_example.gif)
+![](./fmri_paradigms/example_images/visual_example.gif)
 
 ### 2.14.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
