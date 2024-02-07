@@ -21,11 +21,46 @@ We recommend fMRI paradigms for testing:
 >When testing the laterality of language activations we also recommend 
 >measuring the subjects [handedness](#215-assessing-handedness).
 
-We recommend using [PsychoPy](https://www.psychopy.org/) to display the fMRI 
-paradigms via an MRI conditional display screen from, for example,
+>[!TIP] 
+>We recommend using [PsychoPy](https://www.psychopy.org/) to display 
+>the fMRI paradigms via an MRI conditional display screen from, for example,
  [Cambridge Research Systems Ltd](https://www.crsltd.com/tools-for-functional-imaging/mr-safe-displays/boldscreen-32-lcd-for-fmri/nest/boldscreen-32-faqs)
 or [NordicNeuroLab](https://www.nordicneurolab.com/product/fmri-acquisition).
 
+>[!TIP] 
+>We recommend starting the fMRI paradigms automatically using a trigger
+>signal from the MRI scanner connected to the computer running 
+>[PsychoPy](https://www.psychopy.org/) via a 
+>[fORP Interface (905 or 932)](https://www.curdes.com/mainforp/interfaces/fiu-932b.html). 
+
+>[!TIP] 
+>When the paradigm is run in [PsychoPy](https://www.psychopy.org/) a pop-up 
+>window will prompt the operator to select the scanner type and trigger key. 
+>Different scanner models produce triggers differently and the 
+>[fORP Interface ](https://www.curdes.com/mainforp/interfaces/fiu-932b.html) 
+>can be set up to output different keystrokes. The operator should make the 
+>appropriate choices based on their set-up. 
+
+>[!TIP] 
+>On a [Siemens PrismaFit MRI system](https://www.siemens-healthineers.com/en-us/magnetic-resonance-imaging/options-and-upgrades/upgrades/magnetom-trio-upgrade) 
+>the Sequence Trigger Out is the optical connector labelled U2 on D90 on 
+>Board D67 in the Small Signal Unit. A trigger pulse is sent at the start of 
+>each EPI volume i.e. at the start of each TR. 
+
+>[!TIP] 
+>On a [GE Premier MRI system](https://www.gehealthcare.co.uk/products/magnetic-resonance-imaging/3t-mri-scanners/signa-premier-wide-bore-mri-scanner) 
+>the RF un-blanking trigger, labelled socket J10, on the Exciter Module in the 
+>PEN Cabinet can be used as the trigger. The trigger occurs everytime an RF 
+>pulse is played out (including dummy scans). 
+
+>[!TIP]
+>The delay required to ensure the paradigm does not start during the dummy 
+>scans is built into the [PsychoPy](https://www.psychopy.org/) experiments included 
+>[here](./fmri_paradigms). This delay is set in the `wait_for_dummy_scans` 
+>sequence. The operator is prompted to enter the repetition time (TR) of the 
+>fMRI acquisition and the number of dummy scans (which can be found from the 
+>UserCV `numdda`) the delay is then calculated using $delay = numdda \times TR$.
+   
 ## 2.2. Laterality of Language Activations with Picture Naming
 ### 2.2.1. Design and Timing
 The paradigm has a block-design with alternating 18.2 second periods of rest 
