@@ -94,7 +94,7 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
 
-![](./fmri_paradigms/instructions_verbal_fluency.png)
+![](./fmri_paradigms/verbal_fluency/resources/verbal_fluency_instructions.png)
 
 ### 2.3.3. Rest Periods
 During the rest periods of the paradigm a yellow cross, as shown 
@@ -110,7 +110,7 @@ centrally on a black background on the fMRI screen, e.g.:
 
 ### 2.3.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Verbal_Fluency).
+can be found [here](fmri_paradigms/verbal_fluency).
 
 ## 2.4. Laterality of Language Activations with Verb Generation
 ### 2.4.1. Design and Timing
