@@ -315,21 +315,21 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 ### 2.11.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_lips.png)
+![](./fmri_paradigms/lips/resources/instructions_lips.png)
 
 ### 2.11.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen: 
-![](./fmri_paradigms/rest_lips.png)
+![](./fmri_paradigms/lips/resources/rest.png)
 
 ### 2.11.4. Task Periods
 During the task periods of the paradigm the following image is displayed on the 
 fMRI screen: 
-![](./fmri_paradigms/task_lips.png)
+![](./fmri_paradigms/lips/resources/lips.png)
 
 ### 2.11.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Lips).
+can be found [here](fmri_paradigms/lips).
 
 ## 2.12. Sensory Activations of the Hands
 To test sensory activations of the hand(s) we use the same paradigm as for 
