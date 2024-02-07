@@ -164,21 +164,21 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 ### 2.5.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_hands_left.png)
+![](./fmri_paradigms/hands/resources/instructions_left.png)
 
 ### 2.5.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen i.e. the subject keeps both hands still: 
-![](./fmri_paradigms/rest_hands.png)
+![](./fmri_paradigms/hands/resources/rest.png)
 
 ### 2.5.4. Task Periods
 During the task periods of the paradigm the following image is displayed on the 
 fMRI screen: 
-![](./fmri_paradigms/task_hands_left.png)
+![](./fmri_paradigms/hands/resources/left.png)
 
 ### 2.5.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Left_Hand).
+can be found [here](fmri_paradigms/hands).
 
 ## 2.6. Motor Activations of the Right Hand
 ### 2.6.1. Design and Timing
@@ -187,21 +187,21 @@ The paradigm has a block-design as described [above](#221-design-and-timing).
 ### 2.6.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_hands_right.png)
+![](./fmri_paradigms/hands/resources/instructions_right.png)
 
 ### 2.6.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen i.e. the subject keeps both hands still: 
-![](./fmri_paradigms/rest_hands.png)
+![](./fmri_paradigms/hands/resources/rest.png)
 
 ### 2.6.4. Task Periods
 During the task periods of the paradigm the following image is displayed on the 
 fMRI screen: 
-![](./fmri_paradigms/task_hands_right.png)
+![](./fmri_paradigms/hands/resources/right.png)
 
 ### 2.6.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Right_Hand).
+can be found [here](fmri_paradigms/hands).
 
 ## 2.7. Motor Activations of the Both Hands
 ### 2.7.1. Design and Timing
@@ -218,12 +218,12 @@ Rest-Right Hand-Left Hand-Rest-Right Hand-Left Hand-Rest-Left Hand-Right Hand-Re
 ### 2.7.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_hands_both.png)
+![](./fmri_paradigms/hands/resources/instructions_both.png)
 
 ### 2.7.3. Rest Periods
 During the rest periods of the paradigm the following image is displayed on the 
 fMRI screen i.e. the subject keeps both hands still: 
-![](./fmri_paradigms/rest_hands.png)
+![](./fmri_paradigms/hands/resources/rest.png)
 
 ### 2.7.4. Task Periods
 During the task periods of the paradigm the either the left hand or right hand 
@@ -231,7 +231,7 @@ image is displayed on the fMRI screen as described [above](#271-design-and-timin
 
 ### 2.7.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Both_Hands).
+can be found [here](fmri_paradigms/hands).
 
 ## 2.8. Motor Activations of the Left Foot
 ### 2.8.1. Design and Timing
