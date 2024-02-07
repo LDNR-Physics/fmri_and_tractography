@@ -41,7 +41,7 @@ and 273 seconds.
 ### 2.2.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_picture_naming.png)
+![](./fmri_paradigms/picture_naming/resources/instructions_picture_naming.png)
 
 ### 2.2.3. Rest Periods
 During the rest periods of the paradigm a yellow cross or symbols are 
@@ -80,11 +80,11 @@ Cross-Object-Cross-Object-...-Cross-Object
 The same cross, as shown [above](#223-rest-periods), is used.
 
 The objects are chosen randomly from this set of 
-[pictures](./fmri_paradigms/picture_naming_objects). 
+[pictures](./fmri_paradigms/picture_naming/resources/objects). 
 
 ### 2.2.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Picture_Naming).
+can be found [here](fmri_paradigms/picture_naming).
 
 ## 2.3. Laterality of Language Activations with Verbal Fluency
 ### 2.3.1. Design and Timing
