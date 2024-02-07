@@ -372,12 +372,12 @@ Therefore the task onsets occur at 15.6, 46.8, 78, 109.2, 140.4, 171.6, 202.8,
 ### 2.14.2. Instructions
 Prior to the start of data acquisition a set of instructions are displayed on 
 the fMRI screen as shown below:
-![](./fmri_paradigms/instructions_visual.png)
+![](./fmri_paradigms/visual/resources/visual_instructions.png)
 
 ### 2.14.3. Rest Periods
 During the rest periods of the paradigm a red cross is displayed centrally
 on a grey background on the fMRI screen i.e.:
-![](./fmri_paradigms/rest_visual.png)
+![](./fmri_paradigms/visual/resources/visual_rest.png)
 
 ### 2.14.4. Task Periods
 During the task periods of the paradigm there is an irregularly-timed
@@ -385,17 +385,17 @@ chequerboard flash. One of the two images shown below are displayed on the
 fMRI screen for between 50 and 250 ms.  
 
 Image 1:
-![](./fmri_paradigms/task_visual_a.png)
+![](./fmri_paradigms/visual/resources/visual_chequerboard_a.png)
 
 Image 2:
-![](./fmri_paradigms/task_visual_b.png)
+![](./fmri_paradigms/visual/resources/visual_chequerboard_b.png)
 
 For example:
-![](./fmri_paradigms/task_visual.gif)
+![](./fmri_paradigms/visual_example.gif)
 
 ### 2.14.5. PsychoPy Experiment
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
-can be found [here](fmri_paradigms/psychopy_paradigms/Visual).
+can be found [here](fmri_paradigms/visual).
 
 ## 2.15. Assessing Handedness
 When measuring the laterality of language activations with fMRI we assess 
