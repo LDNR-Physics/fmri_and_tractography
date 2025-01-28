@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [release-1.2.1](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.1) - 2025-01-28
+
+### Changed
+- Modified 2_fMRI_Paradigms.md to correct formatting of [NOTE] statements
+- Added 6 and o as trigger choices in all fMRI paradigms
+- Corrected timing error in verb-generation fMRI paradigm
+
 ## [release-1.2.0](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.0) - 2024-02-07
 
 ### Changed
