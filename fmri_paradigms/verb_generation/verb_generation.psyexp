@@ -332,15 +332,15 @@
         <Param val="import * as random from 'random';&amp;#10;" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="# Create a list of symbols&amp;#10;symbols = [&quot;*/+^;@&quot;, &quot;|\£?:#&quot;, &quot;%=+|£&quot;, &quot;$%^£&amp;*&quot;, &quot;*$&amp;^%\&quot;&quot;, &quot;@?£&lt;*)&quot;, &quot;+_&gt;~#\&quot;&quot;, &quot;!*^£:&lt;&quot;, &quot;#';/?&amp;^&quot;, &quot;@-@:{)*&quot;, &quot;&amp;\&quot;+`¬?.&gt;&quot;]&amp;#10;&amp;#10;# Shuffle list of symbols&amp;#10;random.shuffle(symbols)&amp;#10;&amp;#10;# Initialise counter to loop through list of symbols&amp;#10;symbols_counter = 0&amp;#10;rest_rep_counter = 0&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="symbols = [&quot;*/+^;@&quot;, &quot;|\\\u00a3?:#&quot;, &quot;%=+|\u00a3&quot;, &quot;$%^\u00a3&amp;*&quot;, &quot;*$&amp;^%\&quot;&quot;, &quot;@?\u00a3&lt;*)&quot;, &quot;+_&gt;~#\&quot;&quot;, &quot;!*^\u00a3:&lt;&quot;, &quot;#';/?&amp;^&quot;, &quot;@-@:{)*&quot;, &quot;&amp;\&quot;+`\u00ac?.&gt;&quot;];&amp;#10;Math.random.shuffle(symbols);&amp;#10;symbols_counter = 0;&amp;#10;rest_rep_counter = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="if ((rest_rep_counter &lt; 7)) {&amp;#10;    symbols_duration = 1;&amp;#10;} else {&amp;#10;    symbols_duration = 1.2;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Set the duration, in seconds, that the symbols appear on screen&amp;#10;if rest_rep_counter &lt; 7: &amp;#10;    symbols_duration = 1&amp;#10;else:&amp;#10;    symbols_duration = 1.2" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="if ((rest_rep_counter &lt; 8)) {&amp;#10;    symbols_duration = 1;&amp;#10;} else {&amp;#10;    symbols_duration = 1.2;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="# Set the duration, in seconds, that the symbols appear on screen&amp;#10;if rest_rep_counter &lt; 8: &amp;#10;    symbols_duration = 1&amp;#10;else:&amp;#10;    symbols_duration = 1.2" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="symbols_counter += 1;&amp;#10;rest_rep_counter += 1;&amp;#10;if ((symbols_counter === symbols.length)) {&amp;#10;    Math.random.shuffle(symbols);&amp;#10;    symbols_counter = 0;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="# Increment symbols_counter and rest_rep_counter&amp;#10;symbols_counter += 1&amp;#10;rest_rep_counter += 1&amp;#10;&amp;#10;# Re-shuffle list of symbols if necessary&amp;#10;if symbols_counter == len(symbols):&amp;#10;    random.shuffle(symbols)&amp;#10;    symbols_counter = 0" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="symbols_counter += 1;&amp;#10;if ((rest_rep_counter &lt; 8)) {&amp;#10;    rest_rep_counter += 1;&amp;#10;} else {&amp;#10;    rest_rep_counter = 0;&amp;#10;}&amp;#10;if ((symbols_counter === symbols.length)) {&amp;#10;    Math.random.shuffle(symbols);&amp;#10;    symbols_counter = 0;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="# Increment symbols_counter and rest_rep_counter&amp;#10;symbols_counter += 1&amp;#10;if rest_rep_counter &lt; 8: &amp;#10;    rest_rep_counter += 1&amp;#10;else:&amp;#10;    rest_rep_counter = 0&amp;#10;&amp;#10;# Re-shuffle list of symbols if necessary&amp;#10;if symbols_counter == len(symbols):&amp;#10;    random.shuffle(symbols)&amp;#10;    symbols_counter = 0" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="rest_code" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -416,15 +416,15 @@
         <Param val="try {&amp;#10;    import {ArabicReshaper} from 'arabic_reshaper';&amp;#10;    haveArabic = true;&amp;#10;} catch(e) {&amp;#10;    if ((e instanceof ImportError)) {&amp;#10;        haveArabic = false;&amp;#10;    } else {&amp;#10;        throw e;&amp;#10;    }&amp;#10;}&amp;#10;arabic_config = {&quot;delete_harakat&quot;: false, &quot;shift_harakat_position&quot;: true};&amp;#10;" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="# Open the text file containing the list of nouns&amp;#10;fp = nouns_dp / ('%s.txt' % language )&amp;#10;fh = open(fp, encoding=&quot;utf-8&quot;)&amp;#10;&amp;#10;# Create a list of nouns without newlines and carriage returns&amp;#10;nouns = [line.rstrip() for line in fh]&amp;#10;&amp;#10;# Close the text file containing the list of nouns&amp;#10;fh.close()&amp;#10;&amp;#10;# Shuffle the list of nouns&amp;#10;random.shuffle(nouns)&amp;#10;&amp;#10;# Initialise counters to loop through list of nouns&amp;#10;noun_counter = 0&amp;#10;task_rep_counter = 0" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="fp = (nouns_dp / `${language}`);&amp;#10;fh = open(fp, {&quot;encoding&quot;: &quot;utf-8&quot;});&amp;#10;nouns = function () {&amp;#10;    var _pj_a = [], _pj_b = fh;&amp;#10;    for (var _pj_c = 0, _pj_d = _pj_b.length; (_pj_c &lt; _pj_d); _pj_c += 1) {&amp;#10;        var line = _pj_b[_pj_c];&amp;#10;        _pj_a.push(line.rstrip());&amp;#10;    }&amp;#10;    return _pj_a;&amp;#10;}&amp;#10;.call(this);&amp;#10;fh.close();&amp;#10;Math.random.shuffle(nouns);&amp;#10;noun_counter = 0;&amp;#10;task_rep_counter = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="if ((task_rep_counter &lt; 7)) {&amp;#10;    noun_duration = 1;&amp;#10;} else {&amp;#10;    noun_duration = 1.2;&amp;#10;}&amp;#10;task_noun[&quot;languageStyle&quot;] = text_style;&amp;#10;task_noun[&quot;arabic_reshaper&quot;] = new ArabicReshaper({&quot;configuration&quot;: arabic_config});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Set the duration, in seconds, that the noun appears on screen&amp;#10;if task_rep_counter &lt; 7: &amp;#10;    noun_duration = 1&amp;#10;else:&amp;#10;    noun_duration = 1.2&amp;#10;&amp;#10;# Manually overide attributes of task_noun (which is TextStim class)&amp;#10;setattr(task_noun, 'languageStyle', text_style)&amp;#10;setattr(task_noun, 'arabic_reshaper', ArabicReshaper(configuration = arabic_config))" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="if ((task_rep_counter &lt; 8)) {&amp;#10;    noun_duration = 1;&amp;#10;} else {&amp;#10;    noun_duration = 1.2;&amp;#10;}&amp;#10;task_noun[&quot;languageStyle&quot;] = text_style;&amp;#10;task_noun[&quot;arabic_reshaper&quot;] = new ArabicReshaper({&quot;configuration&quot;: arabic_config});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="# Set the duration, in seconds, that the noun appears on screen&amp;#10;if task_rep_counter &lt; 8: &amp;#10;    noun_duration = 1&amp;#10;else:&amp;#10;    noun_duration = 1.2&amp;#10;&amp;#10;# Manually overide attributes of task_noun (which is TextStim class)&amp;#10;setattr(task_noun, 'languageStyle', text_style)&amp;#10;setattr(task_noun, 'arabic_reshaper', ArabicReshaper(configuration = arabic_config))" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="noun_counter += 1;&amp;#10;task_rep_counter += 1;&amp;#10;if ((noun_counter === nouns.length)) {&amp;#10;    Math.random.shuffle(nouns);&amp;#10;    noun_counter = 0;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="# Increment noun_counter and task_rep_counter&amp;#10;noun_counter += 1&amp;#10;task_rep_counter += 1&amp;#10;&amp;#10;# Re-shuffle list of nouns if necessary&amp;#10;if noun_counter == len(nouns):&amp;#10;    random.shuffle(nouns)&amp;#10;    noun_counter = 0" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="noun_counter += 1;&amp;#10;if ((task_rep_counter &lt; 8)) {&amp;#10;    task_rep_counter += 1;&amp;#10;} else {&amp;#10;    task_rep_counter = 0;&amp;#10;}&amp;#10;if ((noun_counter === nouns.length)) {&amp;#10;    Math.random.shuffle(nouns);&amp;#10;    noun_counter = 0;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="# Increment noun_counter and task_rep_counter&amp;#10;noun_counter += 1&amp;#10;if task_rep_counter &lt; 8: &amp;#10;    task_rep_counter += 1&amp;#10;else:&amp;#10;    task_rep_counter = 0&amp;#10;&amp;#10;# Re-shuffle list of nouns if necessary&amp;#10;if noun_counter == len(nouns):&amp;#10;    random.shuffle(nouns)&amp;#10;    noun_counter = 0" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="task_code" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -503,7 +503,7 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="8" valType="num"/>
+      <Param name="nReps" updates="None" val="9" valType="num"/>
       <Param name="name" updates="None" val="repeats_rest" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
@@ -516,7 +516,7 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="8" valType="num"/>
+      <Param name="nReps" updates="None" val="9" valType="num"/>
       <Param name="name" updates="None" val="repeats_task" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
