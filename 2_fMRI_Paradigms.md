@@ -189,8 +189,9 @@ For example:
 The files needed to run this paradigm in [PsychoPy](https://www.psychopy.org/) 
 in a number of different languages can be found [here](./fmri_paradigms/verb_generation).
 
-[!NOTE] The instruction page is always shown in English. You will need to 
-explain the task to the subject if they cannot read English.
+>[!NOTE] 
+>The instruction page is always shown in English. You will need to 
+>explain the task to the subject if they cannot read English.
 
 ## 2.5. Motor Activations of the Left Hand
 ### 2.5.1. Design and Timing
@@ -247,7 +248,8 @@ starts with a rest period i.e.:
 
 Rest-Right Hand-Left Hand-Rest-Right Hand-Left Hand-Rest-Left Hand-Right Hand-Rest-Left Hand-Right Hand-Rest-Right Hand-Left Hand-Rest-Right Hand-Left Hand-Rest-Left Hand-Right Hand-Rest-Left Hand-Right Hand
 
->[!NOTE] The order within each "Left Hand, Right Hand" task pair was selected 
+>[!NOTE] 
+>The order within each "Left Hand, Right Hand" task pair was selected 
 >at random.
 
 ### 2.7.2. Instructions
@@ -322,7 +324,8 @@ fMRI data acquisition (164 measurements i.e. 437.9 seconds). The paradigm
 starts with a rest period i.e.:
 
 Rest-Right Foot-Left Foot-Rest-Right Foot-Left Foot-Rest-Left Foot-Right Foot-Rest-Left Foot-Right Foot-Rest-Right Foot-Left Foot-Rest-Right Foot-Left Foot-Rest-Left Foot-Right Foot-Rest-Left Foot-Right Foot
->[!NOTE] The order within each "Left Foot, Right Foot" task pair was selected 
+>[!NOTE]
+>The order within each "Left Foot, Right Foot" task pair was selected 
 >at random.
 
 ### 2.10.2. Instructions
