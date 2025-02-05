@@ -17,10 +17,6 @@ We recommend fMRI paradigms for testing:
  [feet](#213-sensory-activations-of-the-feet)
  - [visual activations](#214-visual-activations)
 
->[!TIP]
->When testing the laterality of language activations we also recommend 
->measuring the subjects [handedness](#215-assessing-handedness).
-
 >[!TIP] 
 >We recommend using [PsychoPy](https://www.psychopy.org/) to display 
 >the fMRI paradigms via an MRI conditional display screen from, for example,
@@ -62,6 +58,11 @@ or [NordicNeuroLab](https://www.nordicneurolab.com/product/fmri-acquisition).
 >UserCV `numdda`) the delay is then calculated using $delay = numdda \times TR$.
    
 ## 2.2. Laterality of Language Activations with Picture Naming
+
+>[!TIP]
+>When testing the laterality of language activations we also recommend 
+>measuring the subjects [handedness](#215-assessing-handedness).
+
 ### 2.2.1. Design and Timing
 The paradigm has a block-design with alternating 18.2 second periods of rest 
 and task that repeat for the duration of the fMRI data acquisition 
