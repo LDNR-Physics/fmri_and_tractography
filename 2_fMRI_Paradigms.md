@@ -395,7 +395,7 @@ toes a member of staff strokes the top of the subject's foot/feet.
 ### 2.14.1. Design and Timing
 The paradigm has a block-design with alternating 15.6 s second periods of rest 
 and task that repeat for the duration of the fMRI data acquisition 
-(103 measurements i.e. 278.1 seconds). The paradigm starts with a rest period 
+(103 measurements i.e. 275 seconds). The paradigm starts with a rest period 
 i.e.:
 
 Rest-Task-Rest-Task-...-Rest-Task
