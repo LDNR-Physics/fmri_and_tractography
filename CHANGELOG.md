@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [release-1.2.2](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.2) - 2025-02-06
+
+### Added
+- Added information on triggers for Siemens Vida and Sola MRI systems to 2_fMRI_Paradigms.md
+- Added compiled versions of PyschoPy paradigms i.e. .py files as well as batch files to enable them to be run from a desktop shortcut
+
+### Changed
+- Corrected acquisition time errors in 2_fMRI_Paradigms.md
+- Corrected timing error in picture naming fMRI paradigm
+- Updated .psyexp files for compatibility with PsychoPy 2024 version
+
 ## [release-1.2.1](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.1) - 2025-01-28
 
 ### Changed
