@@ -44,6 +44,17 @@ or [NordicNeuroLab](https://www.nordicneurolab.com/product/fmri-acquisition).
 >each EPI volume i.e. at the start of each TR. 
 
 >[!TIP] 
+>On a [Siemens Vida MRI system](https://www.siemens-healthineers.com/en-us/magnetic-resonance-imaging/3t-mri-scanner/magnetom-vida) 
+>or a [Siemens Sola MRI system](https://www.siemens-healthineers.com/en-us/magnetic-resonance-imaging/0-35-to-1-5t-mri-scanner/magnetom-sola) 
+>the Sequence Trigger Out is the optical connector labelled U2 on D90 on 
+>the GPA GraCon. This is not accessible to the user, but can be connected by a 
+>Siemens engineer, using fibre optic cable W13470 to opt_trig_in (U2) on the 
+>fMRI Trigger Convertor (10092360) in the control room. opt_trig_out_aux (U3) 
+>on the fMRI Trigger Convertor can be connected, via a fibre optic or BNC cable, 
+>to a fORP. A trigger pulse is sent at the start of each EPI volume i.e. at 
+>the start of each TR. 
+
+>[!TIP] 
 >On a [GE Premier MRI system](https://www.gehealthcare.co.uk/products/magnetic-resonance-imaging/3t-mri-scanners/signa-premier-wide-bore-mri-scanner) 
 >the RF un-blanking trigger, labelled socket J10, on the Exciter Module in the 
 >PEN Cabinet can be used as the trigger. The trigger occurs everytime an RF 
