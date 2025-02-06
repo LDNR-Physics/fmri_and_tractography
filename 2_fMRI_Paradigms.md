@@ -77,7 +77,7 @@ or [NordicNeuroLab](https://www.nordicneurolab.com/product/fmri-acquisition).
 ### 2.2.1. Design and Timing
 The paradigm has a block-design with alternating 18.2 second periods of rest 
 and task that repeat for the duration of the fMRI data acquisition 
-(111 measurements i.e. 299.7 seconds). The paradigm starts with a rest period 
+(111 measurements i.e. 296.4 seconds). The paradigm starts with a rest period 
 i.e.:
 
 Rest-Task-Rest-Task-...-Rest-Task
