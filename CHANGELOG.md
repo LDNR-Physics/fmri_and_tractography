@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [release-1.2.3](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.3) - 2025-02-25
+
+### Added
+- Added Pashto nouns to Verb Generation fMRI paradigm
+
+### Changed
+- Set text_style to Arabic for Pashto nouns in verb_generation.psyexp and verb_generation.py
+
 ## [release-1.2.2](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.2) - 2025-02-06
 
 ### Added
