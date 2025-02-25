@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.4),
-    on February 06, 2025, at 14:30
+    on February 25, 2025, at 08:38
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -458,7 +458,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     trigger_type = operator_dialog_a_data[1]
     language = operator_dialog_a_data[2].lower()
     
-    if language == 'arabic':
+    if language in ['arabic', 'pashto']:
         text_style = 'Arabic'
     elif language == 'hebrew':
         text_style = 'RTL'
