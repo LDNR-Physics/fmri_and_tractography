@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [release-1.2.3](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.4) - 2025-06-06
+
+### Added
+- Added set of paradigm specific SPM batch files
+
 ## [release-1.2.3](https://github.com/SWastling/fmri_and_tractography/tree/release-1.2.3) - 2025-02-25
 
 ### Added
